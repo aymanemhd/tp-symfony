@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List des Articles{% endblock %}
+
+{% block body %}
+   {{ include ("inc/navbar.html.twig")}}
+   {% if articles %}
+   <table id="articles" class="table table-striped">
+     <thead>
+        <tr>
+            <th>Articles</th>
+            <th>Actions</th>
+        </tr>
+     </thead>
+     <tbody>
+       {% for article in articles %}
+        <tr>
+          <td>{{article}}</td>
+          <td><a href="/article/1" class="btn btn-dark">details</a></td>
+        </tr>
+       {% endfor %}
+     </tbody>
+   </table>
+   {% else %}
+    <p>aucun article</p>
+  
+  {% endif %}
+  
+
+{% endblock %}
