@@ -18,12 +18,12 @@ class Article
     private $id;
 
     /**
-     * @ORM\Column(type="string ,length=255")
+     * @ORM\Column(type="string", length=255)
      */
     private $nom;
 
      /**
-     * @ORM\Column(type="string ,length=255")
+     * @ORM\Column(type="decimal", scale=2)
      */
     private $prix;
 
@@ -31,5 +31,38 @@ class Article
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function getNom(): ?String
+    {
+        return $this->nom;
+    }
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrix(): ?decimal
+    {
+        return $this->prix;
+    }
+    public function setTckNum(decimal $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 }
