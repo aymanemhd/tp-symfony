@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+     {{ form_row(form.Titre,{'attr':{'class':'form-control'}})}} 
+								<br>
+                              {{ form_row(form.Description,{'attr':{'class':'form-control'}})}}
+   <br>
+    <button class="btn btn-warning">{{ button_label|default('Enregistrer') }}</button>
+    <br>
+{{ form_end(form) }}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Article{% endblock %}
+
+{% block body %}
+
+<div class="container center_div">
+							<div class="card-body">
+								<div class="m-sm-4"><br>
+                                    <h4 style="text-align: center;">Modifier Articles</h4>
+
+
+    {{ include('article/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+
+            <br>
+  
+    </div>
+    </div></div>
+{% endblock %}

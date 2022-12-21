@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block title %}Ajouter Article{% endblock %}
+{% block body %}
+{{ include ("inc/navbar.html.twig")}}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}

@@ -5,64 +5,61 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=ArticleRepository::class)
- */
+#[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nom;
+    #[ORM\Column(length: 255)]
+    private ?string $Nom = null;
 
-     /**
-     * @ORM\Column(type="decimal", scale=2)
-     */
-    private $prix;
+    #[ORM\Column]
+    private ?float $Prix = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Article')]
+    private ?Category $category = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
-    public function setId(int $id): self
+
+    public function getNom(): ?string
     {
-        $this->id = $id;
+        return $this->Nom;
+    }
+
+    public function setNom(string $Nom): self
+    {
+        $this->Nom = $Nom;
 
         return $this;
     }
 
-    public function getNom(): ?String
+    public function getPrix(): ?float
     {
-        return $this->nom;
+        return $this->Prix;
     }
-    public function setNom(string $nom): self
+
+    public function setPrix(float $Prix): self
     {
-        $this->nom = $nom;
+        $this->Prix = $Prix;
 
         return $this;
     }
 
-    public function getPrix(): ?decimal
+    public function getCategory(): ?Category
     {
-        return $this->prix;
+        return $this->category;
     }
-    public function setTckNum(decimal $prix): self
+
+    public function setCategory(?Category $category): self
     {
-        $this->prix = $prix;
+        $this->category = $category;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->nom;
     }
 }
